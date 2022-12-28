@@ -1,0 +1,294 @@
+﻿@model VolunteerRegistrationApp.Models.VolunteersRegistrationform
+
+
+<div class="col-md-10 mx-auto py-4">
+    <div class="card">
+        <div class="card-header text-uppercase">
+            <h4 style="color: #d0610c">Volunteer Registration Form</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="required">First Name</label>
+                            <input asp-for="FirstName" class="form-control" required />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="boxImage">
+                            <div id="preview"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="LastName" class="required">Last Name</label>
+                            <input asp-for="LastName" class="form-control" required="true" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="ProfilePicture" class="required">Profile Picture</label>
+                            <input type="file" asp-for="ProfilePicture" required class="form-control" onchange="getImagPreview(event)" />
+
+                            <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DoB" class="required">Date Of Birth</label>
+                                <input id="datepicker" asp-for="DoB" type="text" class="form-control" required />
+                                <span asp-validation-for="DoB" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Gender" class="required"></label>
+                                <select asp-for="Gender" class="form-control" required>
+                                    <option value="">Choose Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="State" class="required"></label>
+                                <input asp-for="State" class="form-control" required />
+                                <span asp-validation-for="State" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="City" class="required">City</label>
+                                <input asp-for="City" class="form-control" required />
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="TownOrDistrict" class="required">Town or District</label>
+                                <input asp-for="TownOrDistrict" class="form-control" required />
+                                <span asp-validation-for="TownOrDistrict" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Area" class="required">Area</label>
+                                <input asp-for="Area" class="form-control" required />
+                                <span asp-validation-for="Area" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Landmark" class="required">Landmark</label>
+                                <input asp-for="Landmark" class="form-control" required />
+                                <span asp-validation-for="Landmark" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Pincode" class="required">Pin Code</label>
+                                <input asp-for="Pincode" class="form-control" required />
+                                <span asp-validation-for="Pincode" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="MobileNo" class="required">Mobile No</label>
+                                <input type="number" asp-for="MobileNo" class="form-control" required />
+                                <span asp-validation-for="MobileNo" class="text-danger"></span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="AltMobNo" class="control-label">Alternative Mobile No</label>
+                                <input type="number" asp-for="AltMobNo" class="form-control" />
+                                <span asp-validation-for="AltMobNo" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="AadharCard" class="control-label">Aadhar Number</label>
+                                <input type="number" asp-for="AadharCard" class="form-control" />
+                                <span asp-validation-for="AadharCard" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="BloodGroup" class="required">Blood Group</label>
+                                <input asp-for="BloodGroup" class="form-control" required />
+                                <span asp-validation-for="BloodGroup" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="NearestRailwayStation" class="control-label">Nearest Railway Station</label>
+                                <input asp-for="NearestRailwayStation" class="form-control" />
+                                <span asp-validation-for="NearestRailwayStation" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="NearestAirportNearest" class="control-label">Nearest Airport Nearest</label>
+                                <input asp-for="NearestAirportNearest" class="form-control" />
+                                <span asp-validation-for="NearestAirportNearest" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="NearestBusStation" class="control-label">Nearest Bus Station</label>
+                                <input asp-for="NearestBusStation" class="form-control" />
+                                <span asp-validation-for="NearestBusStation" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="RouteCoordinator" class="required" >Are you interested in becoming a route coordinator?</label><br />
+                                <input type="radio" name="routeCoordinator" value="Yes" id="yes">
+                                <label for="Yes" asp-for="RouteCoordinator">Yes</label>
+                                <input type="radio" name="routeCoordinator" asp-for="RouteCoordinator" value="Yes" id="no">
+                                <label for="No" asp-for="RouteCoordinator">No</label>
+                                <span asp-validation-for="RouteCoordinator" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="required">Are you interested in</label><br />
+                                <input type="checkbox" asp-for="GochriSeva" id="gochriSeva" name="gochriSeva" value="Yes">
+                                <label for="gochriSeva" class="form-label"> Gochri Seva</label><br />
+                                <input type="checkbox" asp-for="ViharSeva" id="viharSeva" name="viharSeva" value="Yes">
+                                <label for="viharSeva" class="form-label"> Vihar Seva</label><br />
+                                <input type="checkbox" onchange="otherHide(this.checked)" />Others
+                                <p id="hiddenFieldOther" style="display:none">
+                                    <textarea name="other" asp-for="Other">TextOthers</textarea>
+                                </p>
+                                <span asp-validation-for="AnySocialGroup" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="AnySocialGroup" class="required">Are you associated with any social group?</label><br />
+                                <input type="radio" value="true" name="anySocialGroup" onchange="img(0)" /> Yes
+                                <input type="radio" value="false" name="anySocialGroup" onchange="img(1)" /> No
+                                <br />
+                                <div>
+                                    <p id="myimage" style="display:none">
+                                        Name of organization : <input type="text" asp-for="NameOfOrganization" class="form-control" name="nameOfOrganization" /><br />
+                                        Position<input type="text" name="position" asp-for="Position" class="form-control" />
+                                    </p>
+                                </div>
+                                <span asp-validation-for="AnySocialGroup" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase" />
+                            @*<a asp-action="Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to List</a>*@
+                        </div>
+
+
+                        
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js">
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#datepicker").datepicker({
+                format: 'dd-mm-yyyy'
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        function getImagPreview(event) {
+            var image = URL.createObjectURL(event.target.files[0]);
+            var imageDiv = document.getElementById('preview');
+            var newImage = document.createElement('img');
+            imageDiv.innerHTML = '';
+            newImage.src = image;
+            newImage.width = "150";
+            newImage.height = "150"
+            imageDiv.appendChild(newImage);
+        }
+    </script>
+
+    <script type="text/javascript">
+        function otherHide(checked) {
+            if (checked == true)
+                $("#hiddenFieldOther").fadeIn();
+            else $("#hiddenFieldOther").fadeOut();
+        }
+
+        function img(x) {
+            if (x == 0)
+                document.getElementById('myimage').style.display = 'block';
+            else
+                document.getElementById('myimage').style.display = 'none';
+            return;
+        }
+
+    </script>
+
+    <style>
+        .required:after {
+            content: " *";
+            color: red;
+        }
+    </style>
+    <style>
+        .boxImage {
+            background-color: lightgrey;
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            left: 50px;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+
+            $("#txtDate").datepicker({
+
+                dateFormat: 'dd-M-yy',// 22-May-2019
+
+                changeMonth: true,
+
+                changeYear: true
+
+            });
+
+        })
+
+    </script>
+}

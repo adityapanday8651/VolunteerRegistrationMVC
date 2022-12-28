@@ -1,0 +1,58 @@
+﻿@model IEnumerable<VolunteerRegistrationApp.Models.VolunteersRegistrationform>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h4 class="text-center text-uppercase">List of Volunteers</h4>
+
+<p>
+    <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProfilePicture)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.DoB)</th>
+            <th>@Html.DisplayNameFor(model => model.Gender)</th>
+            <th>@Html.DisplayNameFor(model => model.State)</th>
+            <th>@Html.DisplayNameFor(model => model.City)</th>
+            <th>@Html.DisplayNameFor(model => model.TownOrDistrict)</th>
+            <th>@Html.DisplayNameFor(model => model.Area)</th>
+            <th>@Html.DisplayNameFor(model => model.Landmark)</th>
+            <th>@Html.DisplayNameFor(model => model.Pincode)</th>
+            <th>@Html.DisplayNameFor(model => model.MobileNo)</th>
+            <th>@Html.DisplayNameFor(model => model.AltMobNo)</th>
+            <th>@Html.DisplayNameFor(model => model.BloodGroup)</th>
+            <th>@Html.DisplayNameFor(model => model.AadharCard)</th>
+            <th>@Html.DisplayNameFor(model => model.NearestRailwayStation)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in ViewBag.volunteerRegistrations)
+        {
+        <tr>
+            <td><img src="~/images/@employee.ProfilePicture" /></td>
+           
+            <td>@employee.FirstName</td>
+            <td>@employee.LastName</td>
+            <td>@employee.DoB</td>
+            <td>@employee.Gender</td>
+            <td>@employee.State</td>
+            <td>@employee.City</td>
+            <td>@employee.TownOrDistrict</td>
+            <td>@employee.Area</td>
+            <td>@employee.Landmark</td>
+            <td>@employee.Pincode</td>
+            <td>@employee.MobileNo</td>
+            <td>@employee.AltMobNo</td>
+            <td>@employee.BloodGroup</td>
+            <td>@employee.AadharCard</td>
+            <td>@employee.NearestRailwayStation</td>
+        </tr>
+
+        }
+    </tbody>
+</table>   
